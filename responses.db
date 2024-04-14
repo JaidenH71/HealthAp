@@ -1,0 +1,28 @@
+-- SQLite format 3
+
+-- Table: researcher
+CREATE TABLE IF NOT EXISTS researcher (
+    ResearcherID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ResearcherName TEXT NOT NULL,
+    ResearcherEmail TEXT NOT NULL
+);
+
+-- Table: prompts
+CREATE TABLE IF NOT EXISTS prompts (
+    PromptID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ResearcherID INTEGER,
+    Created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Consent TEXT NOT NULL,
+    Msg TEXT NOT NULL,
+    FOREIGN KEY (ResearcherID) REFERENCES researcher(ResearcherID)
+);
+
+-- Sample Data for researcher
+INSERT INTO researcher (ResearcherID, Created, ResearcherName, ResearcherEmail) VALUES 
+    (1, '2024-03-01 15:18:21', 'Colin Conrad', 'colin.conrad@dal.ca'),
+    (2, '2024-03-01 15:15:36', 'Test Researcher', 'Test.Researcher@dal.ca');
+
+-- Sample Data for prompts
+INSERT INTO prompts (PromptID, ResearcherID, Created, Consent, Msg) VALUES
+    (1, 1, '2024-03-01 15:18:21', 'CONSENT FORM – ONLINE STUDY', 'How Can We Determine What’s Real? A Cognitive Assessment of User Trust Towards AI-Generated Images of Politicians');
