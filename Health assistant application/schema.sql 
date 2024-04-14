@@ -1,0 +1,6 @@
+-- Define schema for 'responses' table
+CREATE TABLE IF NOT EXISTS responses (
+    id INTEGER PRIMARY KEY,
+    query TEXT NOT NULL,
+    response TEXT NOT NULL
+);
