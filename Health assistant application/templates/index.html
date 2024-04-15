@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Health Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> 
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personalized Health Assistant</h1>
+            <p>Get personalized health advice and guidance</p>
+        </header>
+        <div class="content-wrapper">
+            <section class="main-content">
+                <form>
+                    <label for="username_input">Enter Username:</label><br>
+                    <input type="text" id="username_input" name="username"><br>
+                    <button type="submit" class="button button-contrast">Submit Username</button>
+                </form>
+                
+                <!-- Form for putting in username -->
+                <form>
+                    <label for="put_email_input">Enter Email:</label><br>
+                    <input type="text" id="Enter_Email_input" name="Enter_Email"><br>
+                    <button type="submit" class="button button-contrast">Submit Email</button>
+                </form>  
+                <!-- Form for health-related question -->
+                <form action="/" method="post" class="health-form" enctype="multipart/form-data">
+                    <label for="user_input">Ask a health-related question or topic:</label><br>
+                    <textarea id="user_input" name="user_input" rows="4" cols="50" placeholder="e.g., How can I improve my diet?"></textarea><br>
+                    
+                    <label for="document_upload">Upload a medical document:</label><br>
+                    <input type="file" id="document_upload" name="document"><br>
+                    
+                    <!-- Get Advice Button -->
+                    <input type="submit" value="Get Advice" class="button">
+                    
+                    <button id="VoiceButton" class="button">Voice Response</button>
+                </form>
+
+                <!-- Form for entering username -->
+
+                
+                {% if ai_response %}
+                <div class="ai-response">
+                    <p>{{ ai_response }}</p>
+                </div>
+                {% endif %}
+                
+                <a href="{{ url_for('stored_responses') }}" class="button">View Responses</a>
+            </section>
+            <aside class="image-container">
+                <img src="{{ url_for('static', filename='doctor_image.png') }}" alt="Doctor Image">
+            </aside>
+        </div>
+        <footer>
+            <p>&copy; 2024 Personalized Health Assistant</p>
+        </footer>
+    </div>
+
+    <!-- Script for speech synthesis -->
+    <script>
+        const speakButton = document.getElementById('speakButton');
+        speakButton.addEventListener('click', () => {
+            const aiResponse = "{{ ai_response }}";
+            const utterance = new SpeechSynthesisUtterance(aiResponse);
+            speechSynthesis.speak(utterance);
+        });
+    </script>
+</body>
+</html>

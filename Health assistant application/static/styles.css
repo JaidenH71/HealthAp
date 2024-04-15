@@ -1,0 +1,105 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333; /* Default text color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.health-form {
+    margin-bottom: 20px;
+}
+
+textarea,
+input[type="text"],
+input[type="submit"],
+input[type="file"],
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="submit"],
+button {
+    background-color: #007bff; /* Blue */
+    color: #fff; /* White */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 10px; /* Add right margin for buttons */
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button-contrast {
+    background-color: #dc3545; /* Red */
+    color: #fff; /* White */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 10px; /* Add right margin for contrast buttons */
+}
+
+.button-contrast:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.ai-response {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 20px; /* Add bottom margin to response section */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container {
+    flex-basis: 30%;
+    margin-left: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
